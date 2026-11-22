@@ -68,12 +68,12 @@ class Prefs(ctx: Context) {
 
 /** رسائل الحالة من الخدمة إلى الشاشة. */
 object Hub {
-    @Volatile var status = ""
+    @Volatile var lastStatus = ""
     @Volatile var onStatus: ((String) -> Unit)? = null
     private val main = Handler(Looper.getMainLooper())
 
     fun setStatus(s: String) {
-        status = s
+        lastStatus = s
         main.post { onStatus?.invoke(s) }
     }
 }

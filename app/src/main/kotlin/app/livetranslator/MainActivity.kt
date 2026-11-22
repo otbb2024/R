@@ -207,7 +207,7 @@ class MainActivity : Activity() {
     override fun onResume() {
         super.onResume()
         Hub.onStatus = { statusView.text = it }
-        statusView.text = Hub.status
+        statusView.text = Hub.lastStatus
         refreshTv()
         refreshButton()
     }
